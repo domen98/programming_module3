@@ -1,0 +1,8 @@
+{
+    "moodle-mod_prog-history": {
+        "requires": [
+            "node",
+            "transition"
+        ]
+    }
+}
