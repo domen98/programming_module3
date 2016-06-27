@@ -424,6 +424,7 @@ class mod_prog_renderer extends plugin_renderer_base {
      * @return string
      */
     public function render_prog_submission_status(prog_submission_status $status) {
+	global $CFG;
         $o = '';
         $o .= $this->output->container_start('submissionstatustable');
         $o .= $this->output->heading(get_string('submissionstatusheading', 'prog'), 3);
@@ -717,8 +718,7 @@ class mod_prog_renderer extends plugin_renderer_base {
         if ($status->view == prog_submission_status::STUDENT_VIEW) {
 			
 			//dodan avtomaticni redirect 20160310
-			$site_loc = 'http://rtk.fri.uni-lj.si';
-			echo  '<script type ="text/javascript"> window.location ="'.$site_loc.'/mod/prog/view.php?id='.$status->coursemoduleid.'&action=editsubmission" </script>';
+			echo  '<script type ="text/javascript"> window.location ="'.$CFG->wwwroot.'/mod/prog/view.php?id='.$status->coursemoduleid.'&action=editsubmission" </script>';
 			
 			/*
             if ($status->canedit) {
