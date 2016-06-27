@@ -3,14 +3,12 @@
 	width:100% !important;
 	margin-left:0 !important;
 }
-#id_submitbutton{
+.path-mod-prog .editsubmissionform input[name="submitbutton"] {
 	display: none;
 }
-
-#id_cancel{
+.path-mod-prog .editsubmissionform input[name="cancel"] {
 	display: none;
 }
-
 
 #id_feedbacktypes{
 	display: none;
