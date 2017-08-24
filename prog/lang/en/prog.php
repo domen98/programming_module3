@@ -69,8 +69,8 @@ assignment submission for \'<i>{$a->assignment}</i>\'.</p>
 <p>You can see it appended to your <a href="{$a->url}">assignment submission</a>.</p>';
 $string['assignmentmailsmall'] = '{$a->grader} has posted some feedback on your
 assignment submission for \'{$a->assignment}\' You can see it appended to your submission';
-$string['assignmentname'] = 'Assignment name';
-$string['assignmentplugins'] = 'Assignment plugins';
+$string['assignmentname'] = 'Programming assignment name';
+$string['assignmentplugins'] = 'Programming assignment plugins';
 $string['assignmentsperpage'] = 'Assignments per page';
 $string['progsubmission'] = 'Submission plugin';
 $string['progsubmissionpluginname'] = 'Submission plugin';
@@ -270,12 +270,12 @@ $string['maxgrade'] = 'Maximum grade';
 $string['maxgrade'] = 'Maximum Grade';
 $string['messageprovider:prog_notification'] = 'Assignment notifications';
 $string['modulename'] = 'Programming Assignment';
-$string['modulename_help'] = 'The assignment activity module enables a teacher to communicate tasks, collect work and provide grades and feedback.
+$string['modulename_help'] = 'The programming assignment activity module enables a teacher to communicate tasks, collect work and provide grades and feedback.
 
 Students can submit any digital content (files), such as word-processed documents, spreadsheets, images, or audio and video clips. Alternatively, or in addition, the assignment may require students to type text directly into the text editor. An assignment can also be used to remind students of \'real-world\' assignments they need to complete offline, such as art work, and thus not require any digital content. Students can submit work individually or as a member of a group.
 
 When reviewing assignments, teachers can leave feedback comments and upload files, such as marked-up student submissions, documents with comments or spoken audio feedback. Assignments can be graded using a numerical or custom scale or an advanced grading method such as a rubric. Final grades are recorded in the gradebook.';
-$string['modulename_link'] = 'mod/assignment/view';
+$string['modulename_link'] = 'mod/prog/view';
 $string['modulenameplural'] = 'Programming Assignments';
 $string['moreusers'] = '{$a} more...';
 $string['multipleteams'] = 'Member of more than one group';
@@ -308,7 +308,7 @@ $string['open'] = 'Open';
 $string['outof'] = '{$a->current} out of {$a->total}';
 $string['overdue'] = '<font color="red">Assignment is overdue by: {$a}</font>';
 $string['outlinegrade'] = 'Grade: {$a}';
-$string['page-mod-prog-x'] = 'Any assignment module page';
+$string['page-mod-prog-x'] = 'Any programming assignment module page';
 $string['page-mod-prog-view'] = 'Assignment module main and submission page';
 $string['participant'] = 'Participant';
 $string['pluginadministration'] = 'Assignment administration';
@@ -356,7 +356,7 @@ $string['setmarkingworkflowstate'] = 'Set marking workflow state';
 $string['selectedusers'] = 'Selected users';
 $string['setmarkingworkflowstateforlog'] = 'Set marking workflow state : (id={$a->id}, fullname={$a->fullname}, state={$a->state}). ';
 $string['setmarkerallocationforlog'] = 'Set marking allocation : (id={$a->id}, fullname={$a->fullname}, marker={$a->marker}). ';
-$string['settings'] = 'Assignment settings';
+$string['settings'] = 'Programming assignment settings';
 $string['showrecentsubmissions'] = 'Show recent submissions';
 $string['status'] = 'Status';
 $string['studentnotificationworkflowstateerror'] = 'Marking workflow state must be \'Released\' to notify students.';
@@ -434,7 +434,7 @@ $string['teamsubmission'] = 'Students submit in groups';
 $string['teamsubmission_help'] = 'If enabled students will be divided into groups based on the default set of groups or a custom grouping. A group submission will be shared among group members and all members of the group will see each others changes to the submission.';
 $string['teamsubmissiongroupingid'] = 'Grouping for student groups';
 $string['teamsubmissiongroupingid_help'] = 'This is the grouping that the assignment will use to find groups for student groups. If not set - the default set of groups will be used.';
-$string['textinstructions'] = 'Assignment instructions';
+$string['textinstructions'] = 'Programming assignment instructions';
 $string['timemodified'] = 'Last modified';
 $string['timeremaining'] = 'Time remaining';
 $string['ungroupedusers'] = 'The setting \'Require group to make submission\' is enabled and some users are either not a member of any group, or are a member of more than one group, so are unable to make submissions.';

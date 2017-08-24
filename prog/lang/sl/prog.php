@@ -52,7 +52,7 @@ $string['progmentmailhtml'] = '{$a->grader} je objavil odziv na vašo oddano nal
 Odziv je dodan <a href="{$a->url}">nalogi</a>.';
 $string['progmentmailsmall'] = '{$a->grader} je objavil/a odziv na vašo oddano nalogo  \'{$a->progment}\'. Odziv je dodan nalogi.';
 $string['progmentname'] = 'Ime naloge';
-$string['progmentplugins'] = 'Vtičniki modula Naloga';
+$string['progmentplugins'] = 'Vtičniki modula Programerska naloga';
 $string['progmentsperpage'] = 'Število nalog na stran';
 $string['prog:revealidentities'] = 'Razkrij identitete udeležencev';
 $string['prog:submit'] = 'Oddaj nalogo';
@@ -176,15 +176,15 @@ $string['locksubmissions'] = 'Zakleni oddajo';
 $string['maxattempts'] = 'Največje število oddaj';
 $string['maxattempts_help'] = 'Največje število poskusov oddaj, ki jih lahko opravi udeleženec. Ko je ta številka poskusov dosežena udeleženec ne more več ponovno oddati naloge.';
 $string['maxgrade'] = 'Najvišja ocena';
-$string['modulename'] = 'Naloga';
-$string['modulename_help'] = 'Naloga omogoča izvajalcu, da udležencem  dodeli zadolžitve/domače naloge, jih zbere, oceni in poda povrtno informacijo.
+$string['modulename'] = 'Programerska naloga';
+$string['modulename_help'] = 'Programerska naloga omogoča izvajalcu, da udležencem  dodeli zadolžitve/domače naloge, jih zbere, oceni in poda povrtno informacijo.
 
 Udeleženci lahko oddajo nalogo v katerikoli elektronski obliki, npr.: besedilno datoteko, preglednico, sliko, avdio/video posnetek. Naloga lahko zahteva tudi, da udeleženci vnesejo besedilo neposredno v obrazec za oddajo. Nalogo lahko oddajo skupinsko ali pa kot samostojen izdelek.
 
 Pri pregledovanju in ocenjevanju naloge, lahko izvajalec poda komentarje tako, da naloži popravljeno nalogo kot dokument, lahko naloži avdio posnetek s komentarji ipd.
 
 Ocena naloge je lahko v številčni ali drugi določeni obliki (npr. opisno). Končna ocena je zabeležena v redovalnici.';
-$string['modulenameplural'] = 'Naloge';
+$string['modulenameplural'] = 'Programerske naloge';
 $string['newsubmissions'] = 'Oddane naloge';
 $string['noattempt'] = 'Neoddano';
 $string['nofiles'] = 'Ni datotek.';
@@ -209,8 +209,8 @@ $string['overdue'] = '<font color="red">Rok za oddajo je potekel pred: {$a}</fon
 $string['page-mod-prog-view'] = 'Glavna stran modula nalog';
 $string['page-mod-prog-x'] = 'Vsaka stran modula nalog';
 $string['participant'] = 'Sodelujoči';
-$string['pluginadministration'] = 'Administracija modula Naloga';
-$string['pluginname'] = 'Naloga';
+$string['pluginadministration'] = 'Administracija modula Programerska naloga';
+$string['pluginname'] = 'Programerska naloga';
 $string['preventsubmissions'] = 'Prepreči udeležencu oddajo naloge';
 $string['preventsubmissionsshort'] = 'Prepreči spreminjanje oddanih nalog';
 $string['previous'] = 'Prejšnje';
@@ -246,7 +246,7 @@ $string['sendstudentnotificationsdefault'] = 'Privzeta nastavitev za "Obvesti ud
 $string['sendstudentnotifications_help'] = 'Če je omogočeno, prejmejo udeleženci sporočilo o posodobitvi ocene ali odzivu.';
 $string['sendsubmissionreceipts'] = 'Pošlji udeležencem potrdilo o oddaji';
 $string['sendsubmissionreceipts_help'] = 'To stikalo omogoči pošiljanje obvestil o oddaji udeležencem, vsakič ko nalogo uspešno oddajo.';
-$string['settings'] = 'Nastavitve modula Naloga';
+$string['settings'] = 'Nastavitve modula Programerska naloga';
 $string['showrecentsubmissions'] = 'Prikaži nedavno oddane naloge';
 $string['status'] = 'Stanje';
 $string['submission'] = 'Oddaja';
