@@ -146,6 +146,7 @@ class prog_submission_onlinetext extends prog_submission_plugin {
             if ($onlinetextsubmission) {
                 $data->onlinetext = $onlinetextsubmission->onlinetext;
                 $data->onlinetextformat = $onlinetextsubmission->onlineformat;
+		$data->onlinelang = $onlinetextsubmission->onlinelang;
             }
 
         }
@@ -165,8 +166,8 @@ class prog_submission_onlinetext extends prog_submission_plugin {
 					,allow_resize: "both"
 					,allow_toggle: false
 					,language: "en"
-					,syntax: "html"	
-					,toolbar: "search, go_to_line, |, undo, redo, |, syntax_selection, |, help"
+					,syntax: "{$data->onlinelang}"	
+					,toolbar: "search, go_to_line, |, undo, redo, |, syntax_selection"
 					,syntax_selection_allow: "python,java,pas,c,cpp,csharp,vb"
 					,is_multi_files: false
 					,replace_tab_by_spaces: 4
@@ -191,6 +192,7 @@ class prog_submission_onlinetext extends prog_submission_plugin {
 			params += "&action=savesubmission";
 			params += "&id="+document.getElementsByName("id")[0].value;
 			params += "&onlinetext_editor[text]=" + encodeURIComponent(submittedText);
+			params += "&onlinelang=" + document.getElementById("frame_id_text_editarea").contentDocument.getElementById("syntax_selection").value;
 			params += "&sesskey="+document.getElementsByName("sesskey")[0].value;
 			params += "&submitbutton="+encodeURIComponent(document.getElementById("id_submitbutton").value);
 			params += "&userid="+document.getElementsByName("userid")[0].value;
@@ -279,7 +281,8 @@ EOD;
            'maxfiles' => EDITOR_UNLIMITED_FILES,
            'maxbytes' => $this->assignment->get_course()->maxbytes,
            'context' => $this->assignment->get_context(),
-           'return_types' => FILE_INTERNAL | FILE_EXTERNAL
+           'return_types' => FILE_INTERNAL | FILE_EXTERNAL,
+           'onlinelang' => null,
         );
         return $editoroptions;
     }
@@ -304,8 +307,15 @@ EOD;
                                                 'progsubmission_onlinetext',
                                                 PROGSUBMISSION_ONLINETEXT_FILEAREA,
                                                 $submission->id);
-
+	
+	
         $onlinetextsubmission = $this->get_onlinetext_submission($submission->id);
+	
+	if (isset($_REQUEST["onlinelang"])) { // TODO: hack to capture onlinelang. Should go to form? Also onlinelang is not posted on form.submit() since it's inside iframe. -Matevz
+		$data->onlinelang = $_REQUEST["onlinelang"];
+	} else {
+		$data->onlinelang = $onlinetextsubmission->onlinelang;
+	}
 
         $fs = get_file_storage();
 
@@ -366,6 +376,7 @@ EOD;
         if ($onlinetextsubmission) {
 
             $onlinetextsubmission->onlinetext = $data->onlinetext;
+            $onlinetextsubmission->onlinelang = $data->onlinelang;
             $onlinetextsubmission->onlineformat = 1; //$data->onlinetext_editor['format'];
             $params['objectid'] = $onlinetextsubmission->id;
 			
@@ -378,6 +389,7 @@ EOD;
 
             $onlinetextsubmission = new stdClass();
             $onlinetextsubmission->onlinetext = $data->onlinetext;
+            $onlinetextsubmission->onlinelang = $data->onlinelang;
             $onlinetextsubmission->onlineformat = 1; //$data->onlinetext_editor['format'];
 
             $onlinetextsubmission->submission = $submission->id;
