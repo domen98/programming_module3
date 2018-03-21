@@ -23,10 +23,10 @@
  */
 
 
-// Note: This is on by default.
+// Note: This is off by default and onlinetext is enabled.
 $settings->add(new admin_setting_configcheckbox('progsubmission_file/default',
                    new lang_string('default', 'progsubmission_file'),
-                   new lang_string('default_help', 'progsubmission_file'), 1));
+                   new lang_string('default_help', 'progsubmission_file'), 0));
 
 $settings->add(new admin_setting_configtext('progsubmission_file/maxfiles',
                    new lang_string('maxfiles', 'progsubmission_file'),

@@ -24,5 +24,5 @@
 
 $settings->add(new admin_setting_configcheckbox('progsubmission_onlinetext/default',
                    new lang_string('default', 'progsubmission_onlinetext'),
-                   new lang_string('default_help', 'progsubmission_onlinetext'), 0));
+                   new lang_string('default_help', 'progsubmission_onlinetext'), 1));
 
