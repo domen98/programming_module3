@@ -156,6 +156,10 @@ class prog_submission_onlinetext extends prog_submission_plugin {
 		$RETURN_LOC = $CFG->wwwroot.'/course/view.php?id='.$this->assignment->get_course()->id;
 		$SITE_LOC = $CFG->wwwroot;
 		$AUTOSAVE_TIMER = 120000;
+		$syntax = "html";
+		if ($data->onlinelang) {
+			$syntax = $data->onlinelang;
+		}
 		$editor = <<<EOD
 		<script language="Javascript" type="text/javascript" src="$SITE_LOC/mod/prog/submission/onlinetext/edit_area/edit_area_full.js"></script>
 		<script language="Javascript" type="text/javascript" src="$SITE_LOC/mod/prog/submission/onlinetext/php_js/php.js"></script>
@@ -166,7 +170,7 @@ class prog_submission_onlinetext extends prog_submission_plugin {
 					,allow_resize: "both"
 					,allow_toggle: false
 					,language: "en"
-					,syntax: "{$data->onlinelang}"	
+					,syntax: "$syntax"
 					,toolbar: "search, go_to_line, |, undo, redo, |, syntax_selection"
 					,syntax_selection_allow: "python,java,pas,c,cpp,csharp,vb"
 					,is_multi_files: false
@@ -192,7 +196,9 @@ class prog_submission_onlinetext extends prog_submission_plugin {
 			params += "&action=savesubmission";
 			params += "&id="+document.getElementsByName("id")[0].value;
 			params += "&onlinetext_editor[text]=" + encodeURIComponent(submittedText);
-			params += "&onlinelang=" + document.getElementById("frame_id_text_editarea").contentDocument.getElementById("syntax_selection").value;
+			if (document.getElementById("frame_id_text_editarea") && document.getElementById("frame_id_text_editarea").contentDocument &&
+			    document.getElementById("frame_id_text_editarea").contentDocument.getElementById("syntax_selection"))
+				params += "&onlinelang=" + document.getElementById("frame_id_text_editarea").contentDocument.getElementById("syntax_selection").value;
 			params += "&sesskey="+document.getElementsByName("sesskey")[0].value;
 			params += "&submitbutton="+encodeURIComponent(document.getElementById("id_submitbutton").value);
 			params += "&userid="+document.getElementsByName("userid")[0].value;
@@ -313,6 +319,9 @@ EOD;
 	
 	if (isset($_REQUEST["onlinelang"])) { // TODO: hack to capture onlinelang. Should go to form? Also onlinelang is not posted on form.submit() since it's inside iframe. -Matevz
 		$data->onlinelang = $_REQUEST["onlinelang"];
+		if ($_REQUEST["onlinelang"]=="-1") {
+			$data->onlinelang = null;
+		}
 	} else {
 		$data->onlinelang = $onlinetextsubmission->onlinelang;
 	}
