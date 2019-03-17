@@ -74,7 +74,7 @@ require_once($CFG->dirroot . '/mod/prog/feedbackplugin.php');
 require_once($CFG->dirroot . '/mod/prog/submissionplugin.php');
 require_once($CFG->dirroot . '/mod/prog/renderable.php');
 require_once($CFG->dirroot . '/mod/prog/gradingtable.php');
-require_once($CFG->libdir . '/eventslib.php');
+//require_once($CFG->libdir . '/eventslib.php');
 require_once($CFG->libdir . '/portfolio/caller.php');
 
 /**
@@ -4960,7 +4960,7 @@ class prog {
                                                                $assignmentname);
         }
 
-        $eventdata = new stdClass();
+        $eventdata = new core\message\message();
         $eventdata->modulename       = 'prog';
         $eventdata->userfrom         = $userfrom;
         $eventdata->userto           = $userto;
