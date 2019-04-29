@@ -24,6 +24,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2015111600;
+$plugin->version   = 2019031600;
 $plugin->requires  = 2015111000;
 $plugin->component = 'progsubmission_onlinetext';
