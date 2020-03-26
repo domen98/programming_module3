@@ -3,9 +3,9 @@
 	width:100% !important;
 	margin-left:0 !important;
 }
-.path-mod-prog .editsubmissionform input[name="submitbutton"] {
+/*.path-mod-prog .editsubmissionform input[name="submitbutton"] {
 	display: none;
-}
+}*/
 .path-mod-prog .editsubmissionform input[name="cancel"] {
 	display: none;
 }

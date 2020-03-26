@@ -156,6 +156,21 @@ class prog_submission_onlinetext extends prog_submission_plugin {
 		$RETURN_LOC = $CFG->wwwroot.'/course/view.php?id='.$this->assignment->get_course()->id;
 		$SITE_LOC = $CFG->wwwroot;
 		$AUTOSAVE_TIMER = 120000;
+		
+	if (get_texteditor("codearea") != false) {
+		// Force plain text editor (e.g. codearea) to be rendered instead of HTML editor:
+        	$data->onlinetextformat = FORMAT_PLAIN;
+
+	        $data = file_prepare_standard_editor($data,
+                                             'onlinetext',
+                                             $editoroptions,
+                                             $this->assignment->get_context(),
+                                             'progsubmission_onlinetext',
+                                             PROGSUBMISSION_ONLINETEXT_FILEAREA,
+                                             $submissionid);
+        	$mform->addElement('editor', 'onlinetext_editor', $this->get_name(), null, $editoroptions);
+		$mform->addElement('html', "<a href=\"$RETURN_LOC\">&lt;&lt; Nazaj na seznam nalog</a>");
+	} else {
 		$syntax = "html";
 		if ($data->onlinelang) {
 			$syntax = $data->onlinelang;
@@ -257,22 +272,13 @@ class prog_submission_onlinetext extends prog_submission_plugin {
 		</script>
 		
 EOD;
-		
-		
-   /*     $data = file_prepare_standard_editor($data,
-                                             'onlinetext',
-                                             $editoroptions,
-                                             $this->assignment->get_context(),
-                                             'progsubmission_onlinetext',
-                                             PROGSUBMISSION_ONLINETEXT_FILEAREA,
-                                             $submissionid);*/
-        //$mform->addElement('progarea', 'onlinetext_editor', $this->get_name(), null, $editoroptions);
+        	//$mform->addElement('progarea', 'onlinetext_editor', $this->get_name(), null, $editoroptions);
 		$mform->addElement('textarea', 'onlinetext_editor[text]', null, array( 'class'=>'', 'style'=>'height: 600px; width: 100%;', 'id'=>"id_text_editarea"));
 		$mform->getElement('onlinetext_editor[text]')->setValue($data->onlinetext);
 		$mform->addElement('html', $editor);
 		//<textarea style="height: 600px; width: 100%;" id="id_text_editarea" name="onlinetext_editor[text]"></textarea>
 		//<input  style="display:none" type="text" name="onlinetext_editor[format]" value="1" />
-
+	}
         return true;
     }
 

@@ -60,7 +60,7 @@ if ($ADMIN->fulltree) {
     $settings->add(new admin_setting_configcheckbox('prog/submissionreceipts',
                                                     $name,
                                                     $description,
-                                                    1));
+                                                    0));
 
     $name = new lang_string('submissionstatement', 'mod_prog');
     $description = new lang_string('submissionstatement_help', 'mod_prog');

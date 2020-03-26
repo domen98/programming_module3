@@ -24,7 +24,7 @@
 
 $settings->add(new admin_setting_configcheckbox('progfeedback_comments/default',
                    new lang_string('default', 'progfeedback_comments'),
-                   new lang_string('default_help', 'progfeedback_comments'), 1));
+                   new lang_string('default_help', 'progfeedback_comments'), 0));
 
 $setting = new admin_setting_configcheckbox('progfeedback_comments/inline',
                    new lang_string('commentinlinedefault', 'progfeedback_comments'),
