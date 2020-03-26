@@ -170,6 +170,57 @@ class prog_submission_onlinetext extends prog_submission_plugin {
                                              $submissionid);
         	$mform->addElement('editor', 'onlinetext_editor', $this->get_name(), null, $editoroptions);
 		$mform->addElement('html', "<a href=\"$RETURN_LOC\">&lt;&lt; Nazaj na seznam nalog</a>");
+		
+		// Add autosave feature
+		$htmlAutosave = <<<EOD
+		<script language="Javascript" type="text/javascript">
+
+		savingMutex=0;
+		trySaveNum=0;
+		autoSaveTimer = setTimeout("saveAndCommit()", $AUTOSAVE_TIMER);
+
+		function saveAndCommit(){
+                        if (savingMutex) {
+                                return;
+                        }
+
+                        savingMutex=1;
+                        clearTimeout(autoSaveTimer);
+
+                        var http = new XMLHttpRequest();
+                        var url = "$SITE_LOC/mod/prog/view.php";
+                        var submittedText = document.getElementById("id_onlinetext_editor").value;
+                        var params = "";
+                        params += "_qf__mod_prog_submission_form="+document.getElementsByName("_qf__mod_prog_submission_form")[0].value;
+                        params += "&action=savesubmission";
+                        params += "&id="+document.getElementsByName("id")[0].value;
+                        params += "&onlinetext_editor[text]=" + encodeURIComponent(submittedText);
+                        params += "&sesskey="+document.getElementsByName("sesskey")[0].value;
+                        params += "&submitbutton="+encodeURIComponent(document.getElementById("id_submitbutton").value);
+                        params += "&userid="+document.getElementsByName("userid")[0].value;
+			params += "&submissionstatement=1";
+
+                        http.open("POST", url, true);
+                        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                        http.setRequestHeader("Content-length", params.length);
+                        http.setRequestHeader("Connection", "close");
+
+                        http.onreadystatechange = function() {
+                                if(http.readyState == 4) {
+                                        if (http.status == 200) {
+                                                savingMutex=0;
+                                                autoSaveTimer = setTimeout("saveAndCommit()", $AUTOSAVE_TIMER);
+                                        } else if (http.status!=0) {
+                                                alert("Napaka pri samodejnem shranjevanju. http.readyState = "+http.readyState+", http.status="+http.status);
+                                        }
+                                }
+                        }
+
+                        http.send(params);
+                }
+		</script>
+EOD;
+	$mform->addElement('html', $htmlAutosave);
 	} else {
 		$syntax = "html";
 		if ($data->onlinelang) {

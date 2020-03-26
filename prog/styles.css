@@ -9,6 +9,9 @@
 .path-mod-prog .editsubmissionform input[name="cancel"] {
 	display: none;
 }
+/*#fitem_id_onlinetext_editor.fitemtitle {
+	display: none;
+}*/
 
 #id_feedbacktypes{
 	display: none;
