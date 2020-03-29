@@ -16,9 +16,9 @@
 #id_feedbacktypes{
 	display: none;
 }
-#id_submissionsettings{
+/*#id_submissionsettings{
 	display: none;
-}
+}*/
 
 #id_groupsubmissionsettings{
 	display: none;
@@ -32,9 +32,9 @@
 	display: none;
 }
 
-#id_submissiontypes{
+/*#id_submissiontypes{
 	display: none;
-}
+}*/
 
 .path-mod-prog div.gradingnavigation div {
     float: left;
